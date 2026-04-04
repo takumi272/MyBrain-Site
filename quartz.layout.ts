@@ -1,5 +1,37 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { FileTrieNode } from "./quartz/util/fileTrie"
+
+const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
+  const order = [
+    "動画編集",
+    "報酬面の説明",
+    "サポーター(CS)とのコミュニケーションの取り方について",
+    "CapCutのインストール方法",
+    "台本作成方法",
+    "背景素材について",
+    "動画編集について",
+    "ジェットカットについて",
+    "フォントの色味",
+    "画像位置",
+    "セーフティゾーン",
+    "文字数チェック",
+    "強調チェック",
+  ]
+  const aIndex = order.indexOf(a.slugSegment)
+  const bIndex = order.indexOf(b.slugSegment)
+  if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex
+  if (aIndex !== -1) return -1
+  if (bIndex !== -1) return 1
+  if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+    return a.displayName.localeCompare(b.displayName, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    })
+  }
+  if (!a.isFolder && b.isFolder) return 1
+  return -1
+}
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -38,7 +70,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({ sortFn: customSortFn }),
   ],
   right: [
     Component.Graph(),
@@ -62,7 +94,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({ sortFn: customSortFn }),
   ],
   right: [],
 }

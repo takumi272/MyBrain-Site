@@ -6,9 +6,9 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
   const order = [
     "動画編集",
     "報酬面の説明",
-    "サポーター(CS)とのコミュニケーションの取り方について",
+    "CSとのコミュニケーションのとり方について",
     "CapCutのインストール方法",
-    "台本作成方法",
+    "台本作成について",
     "背景素材について",
     "動画編集について",
     "ジェットカットについて",
@@ -17,6 +17,9 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
     "セーフティゾーン",
     "文字数チェック",
     "強調チェック",
+    "提出前のチェックリスト",
+    "報酬の申請",
+    "AIから出力された台本の添削について",
   ]
   const aIndex = order.indexOf(a.slugSegment)
   const bIndex = order.indexOf(b.slugSegment)

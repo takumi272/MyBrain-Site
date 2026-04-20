@@ -3,7 +3,11 @@ import * as Component from "./quartz/components"
 import { FileTrieNode } from "./quartz/util/fileTrie"
 
 const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
-  const order = [
+  // トップレベルのフォルダ順
+  const folderOrder = ["動画編集", "インスタ運用"]
+
+  // フォルダ内のページ順
+  const pageOrder = [
     "動画編集",
     "報酬面の説明",
     "CSとのコミュニケーションのとり方について",
@@ -21,11 +25,22 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
     "提出前のチェックリスト",
     "報酬の申請",
   ]
-  const aIndex = order.indexOf(a.slugSegment)
-  const bIndex = order.indexOf(b.slugSegment)
+
+  // フォルダ順チェック
+  const aFolderIdx = folderOrder.indexOf(a.slugSegment)
+  const bFolderIdx = folderOrder.indexOf(b.slugSegment)
+  if (aFolderIdx !== -1 && bFolderIdx !== -1) return aFolderIdx - bFolderIdx
+  if (aFolderIdx !== -1) return -1
+  if (bFolderIdx !== -1) return 1
+
+  // ページ順チェック
+  const aIndex = pageOrder.indexOf(a.slugSegment)
+  const bIndex = pageOrder.indexOf(b.slugSegment)
   if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex
   if (aIndex !== -1) return -1
   if (bIndex !== -1) return 1
+
+  // デフォルト: フォルダ優先、アルファベット順
   if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
     return a.displayName.localeCompare(b.displayName, undefined, {
       numeric: true,

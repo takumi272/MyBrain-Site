@@ -8,6 +8,7 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
 
   // フォルダ内のページ順
   const pageOrder = [
+    // 動画編集
     "動画編集",
     "報酬面の説明",
     "CSとのコミュニケーションのとり方について",
@@ -24,6 +25,14 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
     "強調チェック",
     "提出前のチェックリスト",
     "報酬の申請",
+    // インスタ運用
+    "Instagramアカウント作成方法",
+    "プロフィール編集方法",
+    "プロアカウント切り替え方法",
+    "リール投稿のやりかた",
+    "YouTubeのアカウントの作成方法について",
+    "プロフィール作成の仕方",
+    "YouTubeの投稿の仕方",
   ]
 
   // フォルダ順チェック

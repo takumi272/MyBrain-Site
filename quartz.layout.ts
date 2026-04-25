@@ -158,7 +158,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({ sortFn: customSortFn }),
+    Component.Explorer({ sortFn: customSortFn, folderDefaultState: "open" }),
   ],
   right: [
     Component.Graph(),
@@ -182,7 +182,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({ sortFn: customSortFn }),
+    Component.Explorer({ sortFn: customSortFn, folderDefaultState: "open" }),
   ],
   right: [],
 }

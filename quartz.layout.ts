@@ -1,39 +1,100 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import { FileTrieNode } from "./quartz/util/fileTrie"
+import { QuartzPluginData } from "./quartz/plugins/vfile"
+import { isFolderPath } from "./quartz/util/path"
+
+// ページの表示順（Explorer・フォルダ一覧ページ共通）
+export const pageOrder = [
+  // 動画編集
+  "動画編集",
+  "報酬面の説明",
+  "CSとのコミュニケーションのとり方について",
+  "CapCutのインストール方法",
+  "台本作成について",
+  "AIから出力された台本の添削について",
+  "背景素材について",
+  "動画編集について",
+  "ジェットカットについて",
+  "フォントの色味",
+  "画像位置",
+  "セーフティゾーン",
+  "文字数チェック",
+  "強調チェック",
+  "提出前のチェックリスト",
+  "報酬の申請",
+  // インスタ運用
+  "Instagramアカウント作成方法",
+  "プロフィール編集方法",
+  "プロアカウント切り替え方法",
+  "リール投稿のやりかた",
+  "YouTubeのアカウントの作成方法について",
+  "プロフィール作成の仕方",
+  "YouTubeの投稿の仕方",
+]
+
+// Explorer の displayName と同等の表示名を取得
+// 優先順位: frontmatter.title → filePath のbasename（index時は親dir） → slug セグメント
+function getDisplayName(data: QuartzPluginData): string {
+  if (data.frontmatter?.title) return data.frontmatter.title
+
+  // filePath からbasename取得（Explorer の fileSegmentHint に相当、slug化前の元名）
+  const fp = (data as Record<string, unknown>).filePath as string | undefined
+  if (fp) {
+    const segments = fp.split("/")
+    const base = segments.pop() ?? ""
+    const name = base.replace(/\.(md|html)$/, "")
+    // index.md の場合は親ディレクトリ名を使う（Explorer の displayName と同等）
+    if (name === "index" || name === "_index") {
+      return segments.pop() ?? ""
+    }
+    return name
+  }
+
+  // slug から取得（slug化済みなのでフォールバック）
+  const slug = data.slug ?? ""
+  const normalized = slug.replace(/\/index$/, "").replace(/^index$/, "")
+  const parts = normalized.split("/")
+  return parts[parts.length - 1] || ""
+}
+
+// slug からページ識別用セグメントを取得（pageOrder照合用）
+function getSlugSegment(data: QuartzPluginData): string {
+  const slug = data.slug ?? ""
+  const normalized = slug.replace(/\/index$/, "").replace(/^index$/, "")
+  const parts = normalized.split("/")
+  return parts[parts.length - 1] || ""
+}
+
+// フォルダ一覧ページ用ソート関数（QuartzPluginData用）
+export const customFolderSort = (f1: QuartzPluginData, f2: QuartzPluginData): number => {
+  const f1Seg = getSlugSegment(f1)
+  const f2Seg = getSlugSegment(f2)
+  const f1Idx = pageOrder.indexOf(f1Seg)
+  const f2Idx = pageOrder.indexOf(f2Seg)
+
+  if (f1Idx !== -1 && f2Idx !== -1) return f1Idx - f2Idx
+  if (f1Idx !== -1) return -1
+  if (f2Idx !== -1) return 1
+
+  // フォールバック: Explorer側と同じ仕様（フォルダ優先 + numeric localeCompare）
+  const f1IsFolder = isFolderPath(f1.slug ?? "")
+  const f2IsFolder = isFolderPath(f2.slug ?? "")
+  if (f1IsFolder && !f2IsFolder) return -1
+  if (!f1IsFolder && f2IsFolder) return 1
+
+  // Explorer の displayName と同等の表示名で比較
+  const f1Name = getDisplayName(f1)
+  const f2Name = getDisplayName(f2)
+  return f1Name.localeCompare(f2Name, undefined, {
+    numeric: true,
+    sensitivity: "base",
+  })
+}
 
 const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
   // トップレベルのフォルダ順
   const folderOrder = ["動画編集", "インスタ運用"]
-
-  // フォルダ内のページ順
-  const pageOrder = [
-    // 動画編集
-    "動画編集",
-    "報酬面の説明",
-    "CSとのコミュニケーションのとり方について",
-    "CapCutのインストール方法",
-    "台本作成について",
-    "AIから出力された台本の添削について",
-    "背景素材について",
-    "動画編集について",
-    "ジェットカットについて",
-    "フォントの色味",
-    "画像位置",
-    "セーフティゾーン",
-    "文字数チェック",
-    "強調チェック",
-    "提出前のチェックリスト",
-    "報酬の申請",
-    // インスタ運用
-    "Instagramアカウント作成方法",
-    "プロフィール編集方法",
-    "プロアカウント切り替え方法",
-    "リール投稿のやりかた",
-    "YouTubeのアカウントの作成方法について",
-    "プロフィール作成の仕方",
-    "YouTubeの投稿の仕方",
-  ]
 
   // フォルダ順チェック
   const aFolderIdx = folderOrder.indexOf(a.slugSegment)

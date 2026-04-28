@@ -26,10 +26,13 @@ export const pageOrder = [
   "提出前のチェックリスト",
   "報酬の申請",
   // インスタ運用
+  "インスタ運用",
   "Instagramアカウント作成方法",
   "プロフィール編集方法",
   "プロアカウント切り替え方法",
   "リール投稿のやりかた",
+  // YouTubeについて
+  "YouTubeについて",
   "YouTubeのアカウントの作成方法について",
   "プロフィール作成の仕方",
   "YouTubeの投稿の仕方",
@@ -96,7 +99,7 @@ export const customFolderSort = (f1: QuartzPluginData, f2: QuartzPluginData): nu
 
 const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
   // トップレベルのフォルダ順
-  const folderOrder = ["動画編集", "インスタ運用"]
+  const folderOrder = ["動画編集", "インスタ運用", "YouTubeについて"]
 
   // フォルダ順チェック
   const aFolderIdx = folderOrder.indexOf(a.slugSegment)
@@ -123,10 +126,12 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
     "強調チェック",
     "提出前のチェックリスト",
     "報酬の申請",
+    "インスタ運用",
     "Instagramアカウント作成方法",
     "プロフィール編集方法",
     "プロアカウント切り替え方法",
     "リール投稿のやりかた",
+    "YouTubeについて",
     "YouTubeのアカウントの作成方法について",
     "プロフィール作成の仕方",
     "YouTubeの投稿の仕方",

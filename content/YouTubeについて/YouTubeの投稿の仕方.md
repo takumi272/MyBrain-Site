@@ -1,6 +1,7 @@
 ---
 aliases:
   - /YouTubeの投稿の仕方
+  - /インスタ運用/YouTubeの投稿の仕方
 ---
 
 # YouTubeの投稿の仕方

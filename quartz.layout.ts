@@ -32,6 +32,7 @@ export const pageOrder = [
   "プロフィール編集方法",
   "プロアカウント切り替え方法",
   "リール投稿のやりかた",
+  "コメント→DM対応の流れ",
   // YouTubeについて
   "YouTubeについて",
   "YouTubeのアカウントの作成方法について",
@@ -133,6 +134,7 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
     "プロフィール編集方法",
     "プロアカウント切り替え方法",
     "リール投稿のやりかた",
+    "コメント→DM対応の流れ",
     "YouTubeについて",
     "YouTubeのアカウントの作成方法について",
     "プロフィール作成の仕方",

@@ -63,12 +63,10 @@ Instagramの運用を**自動化**するシステムです。投稿へのコメ�
 - **コメント・DMの内容** → Googleスプレッドシートにまとめてあります
 - **L Gramの操作方法** → 動画をご用意していますのでご確認ください
 
-![[Pasted image 20260516204459.png]]
-
 ### リンク
 
 - [コメント・DM内容スプレッドシート](https://docs.google.com/spreadsheets/d/1026jQymmOu5UZXuyscKpHjBodKvM0-rn7U9flhmbRrM/edit?usp=drivesdk)
-- [L Gram操作方法（動画）](https://www.youtube.com/watch?v=nnvcaq954kU)
+- [L Gram操作方法（動画）](https://www.youtube.com/watch?v=cQavf8dAJAY)
 
 
 

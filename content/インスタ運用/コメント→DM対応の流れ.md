@@ -9,7 +9,7 @@ aliases:
 > [!tip] まずはこの動画を見てください
 > コメントが来てからDMを送るまでの基本的な流れを解説しています。
 >
-> ![コメント→DM対応の流れ（動画）](https://www.youtube.com/watch?v=cQavf8dAJAY)
+> ![コメント→DM対応の流れ（動画）](https://www.youtube.com/watch?v=c5jTSFu4c7Y)
 >
 > *最新のコメント文言・運用ルールは別途共有のスプレッドシートを必ず確認してください。*
 

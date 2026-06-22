@@ -78,6 +78,24 @@ AIは完璧ではありません。出力された台本をそのまま使って
 
 ---
 
+### 台本プロンプトの使い方（台本添削後）
+
+添削後の台本プロンプトの使い方については、以下の動画と資料を参考にしてください。
+
+> [!tip] 台本プロンプトの使い方
+> 台本添削後のプロンプトの使い方について解説しています。
+>
+> ![台本プロンプトの使い方（動画）](https://www.youtube.com/watch?v=otuhhF4ckvk)
+
+**参考資料**
+
+- [note：プロンプト出力後の台本添削方法](https://note.com/preview/n16abe807aba0?prev_access_key=6ebbf825248b7a6ad173fed97bd82ad5)
+- [台本プロンプト（Googleスプレッドシート）](https://docs.google.com/spreadsheets/d/12oEeMGsz_LXFc6ZdmHJtXdmJt57ag_JgKCXSMNWvaBs/edit?usp=drivesdk)
+
+
+
+---
+
 ### ⑤ 添削が終わったらサポーターに共有する
 
 添削が完了したら、台本とコメント欄に書く内容をサポーターに共有してください。

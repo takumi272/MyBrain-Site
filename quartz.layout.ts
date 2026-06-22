@@ -155,6 +155,9 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
     "YouTubeのアカウントの作成方法について",
     "プロフィール作成の仕方",
     "YouTubeの投稿の仕方",
+    "外注について",
+    "CSサポートについて",
+    "CSサポート方針について",
   ]
   const aIndex = order.indexOf(a.slugSegment)
   const bIndex = order.indexOf(b.slugSegment)

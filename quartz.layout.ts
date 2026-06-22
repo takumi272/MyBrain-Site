@@ -46,6 +46,11 @@ export const pageOrder = [
   "YouTubeのアカウントの作成方法について",
   "プロフィール作成の仕方",
   "YouTubeの投稿の仕方",
+  // 外注について
+  "外注について",
+  // CSサポートについて
+  "CSサポートについて",
+  "CSサポート方針について",
 ]
 
 // Explorer の displayName と同等の表示名を取得

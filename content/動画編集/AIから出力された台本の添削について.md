@@ -89,7 +89,7 @@ AIは完璧ではありません。出力された台本をそのまま使って
 
 **参考資料**
 
-- [note：プロンプト出力後の台本添削方法](https://note.com/preview/n16abe807aba0?prev_access_key=6ebbf825248b7a6ad173fed97bd82ad5)
+- [note：プロンプト出力後の台本添削方法](https://note.com/preview/n3e31bcc1c5b0?prev_access_key=b70a8a520b978be63fcc4bd51be6dd59)
 - [台本プロンプト（Googleスプレッドシート）](https://docs.google.com/spreadsheets/d/12oEeMGsz_LXFc6ZdmHJtXdmJt57ag_JgKCXSMNWvaBs/edit?usp=drivesdk)
 
 

@@ -12,3 +12,4 @@ title: MyBrain
 - [[YouTubeについて/index|YouTubeについて]] — YouTube運用ガイド
 - [[外注について/index|外注について]] — 外注のリクルート方法や運用ガイド
 - [[CSサポートについて/index|CSサポートについて]] — CSサポートの方針に関するガイド
+- [[Threads自動運用ツール/index|Threads自動運用ツール]] — Threads自動運用ツール（TA-Automation）の操作ガイド

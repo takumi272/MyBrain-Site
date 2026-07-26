@@ -57,6 +57,12 @@ export const pageOrder = [
   "Threads自動運用ツール",
   // チーム運用について
   "チーム運用について",
+  "チーム運用とは",
+  "チーム運用オファー基準について",
+  "チーム運用の報酬分配について",
+  "リーダーについて",
+  "編集者について",
+  "アカウント運用者",
 ]
 
 // Explorer の displayName と同等の表示名を取得
@@ -173,6 +179,12 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
     "CSサポート方針について",
     "Threads自動運用ツール",
     "チーム運用について",
+    "チーム運用とは",
+    "チーム運用オファー基準について",
+    "チーム運用の報酬分配について",
+    "リーダーについて",
+    "編集者について",
+    "アカウント運用者",
   ]
   const aIndex = order.indexOf(a.slugSegment)
   const bIndex = order.indexOf(b.slugSegment)

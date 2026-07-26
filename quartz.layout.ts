@@ -53,6 +53,10 @@ export const pageOrder = [
   // CSサポートについて
   "CSサポートについて",
   "CSサポート方針について",
+  // Threads自動運用ツール
+  "Threads自動運用ツール",
+  // チーム運用について
+  "チーム運用について",
 ]
 
 // Explorer の displayName と同等の表示名を取得
@@ -167,6 +171,8 @@ const customSortFn = (a: FileTrieNode, b: FileTrieNode) => {
     "外注について",
     "CSサポートについて",
     "CSサポート方針について",
+    "Threads自動運用ツール",
+    "チーム運用について",
   ]
   const aIndex = order.indexOf(a.slugSegment)
   const bIndex = order.indexOf(b.slugSegment)
